@@ -6,13 +6,13 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:18:42 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/11 13:22:07 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/11 17:16:20 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/so_long.h"
 
-int	map_is_rectangle(const char *map_string)
+int	map_is_rectangle(char *map_string)
 {
 	int	row_length;
 	int	col_length;
@@ -39,7 +39,7 @@ int	map_is_rectangle(const char *map_string)
 	return (1);
 }
 
-int	map_is_closed(const char *map_string)
+int	map_is_closed(char *map_string)
 {
 	int	col_length;
 	int	i;
@@ -66,7 +66,7 @@ int	map_is_closed(const char *map_string)
 	return (1);
 }
 
-int	map_valid(const char *map_string)
+int	map_valid(char *map_string)
 {
 	int	exits;
 	int	collectibles;
@@ -92,7 +92,7 @@ int	map_valid(const char *map_string)
 	return (0);
 }
 
-int	parse_map(const char *map_string)
+int	parse_map(char *map_string)
 {
 	if (!map_is_rectangle(map_string) || !map_is_closed(map_string) ||
 			!map_valid(map_string))
@@ -100,6 +100,7 @@ int	parse_map(const char *map_string)
 		ft_printf("Error\nMap isn't valid, retry with another map !\n");
 		return (0);
 	}
+	is_valid_path(map_string);
 	//printf("is rectangle = %d\nis surrounded by walls = %d\nis valid = %d\n", map_is_rectangle(map_string), map_is_closed(map_string), map_valid(map_string));
 	return (1);
 }

@@ -1,21 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   window_free_destroy.c                              :+:      :+:    :+:   */
+/*   path_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 18:13:57 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/11 17:05:33 by byanis           ###   ########.fr       */
+/*   Created: 2023/01/11 16:11:27 by byanis            #+#    #+#             */
+/*   Updated: 2023/01/11 16:11:36 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/so_long.h"
 
-void	ft_destroy(void *mlx_ptr, void *win_ptr)
-{
-	mlx_destroy_window(mlx_ptr, win_ptr);
-	mlx_destroy_display(mlx_ptr);
-	free(mlx_ptr);
-
-}

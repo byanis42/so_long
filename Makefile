@@ -1,7 +1,7 @@
 CC = clang
 CFLAGS = -I./includes
 SRCS = main.c map_parsing.c arg_to_str.c ber_format.c window_free_destroy.c window_init.c \
-
+		path_utils.c valid_path.c dfs.c
 
 OBJS = $(SRCS:.c=.o)
 

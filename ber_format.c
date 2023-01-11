@@ -6,13 +6,13 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:47:23 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/11 13:12:53 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/11 17:16:04 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/so_long.h"
 
-int	check_ber_format(const char *str)
+int	check_ber_format(char *str)
 {
 	int	length;
 	int	i;
