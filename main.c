@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:25:53 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/10 19:51:18 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/11 13:13:16 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int ac, char **av)
 {
-	char *map_string;
+	char	*map_string;
 
 	if (ac != 2)
 		return (0);
@@ -26,5 +26,5 @@ int	main(int ac, char **av)
 	map_string = arg_to_str(av[1]);
 	parse_map(map_string);
 	free(map_string);
-	//init_window();
+	init_window();
 }

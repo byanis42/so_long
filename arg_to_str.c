@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:34:54 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/10 19:47:26 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/11 13:08:56 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*arg_to_str(char *input)
 	while (bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, sizeof buffer);
-		result = ft_realloc(result, result_size + bytes_read);
+		result = ft_realloc(result, result_size + bytes_read + 1);
 		if (!result)
 			return (ft_ret_null_free(result));
 		ft_memcpy(result + result_size, buffer, bytes_read);

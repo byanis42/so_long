@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:47:23 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/10 16:12:34 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/11 13:12:53 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 int	check_ber_format(const char *str)
 {
-	int length = ft_strlen(str);
+	int	length;
+	int	i;
+
+	length = ft_strlen(str);
 	if (length < 5)
 		return (0);
-	int i = length - 4;
+	i = length - 4;
 	if (str[i++] != '.')
 		return (0);
 	if (str[i++] != 'b')

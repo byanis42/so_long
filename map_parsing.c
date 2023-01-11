@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:18:42 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/10 18:26:00 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/11 13:22:07 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,12 @@ int	map_valid(const char *map_string)
 
 int	parse_map(const char *map_string)
 {
-	//const char	*map = "1111111111111\n10010000000C1\n1000011111001\n1P0011E000001\n1111111111111\n";
-
-	//map_is_rectangle(map_string);
-	//map_is_closed(map_string);
-	//printf("is rectangle = %d\nis surrounded by walls = %d\nis valid = %d\n", map_is_rectangle(map), map_is_closed(map), map_valid(map));
-	printf("is rectangle = %d\nis surrounded by walls = %d\nis valid = %d\n", map_is_rectangle(map_string), map_is_closed(map_string), map_valid(map_string));
+	if (!map_is_rectangle(map_string) || !map_is_closed(map_string) ||
+			!map_valid(map_string))
+	{
+		ft_printf("Error\nMap isn't valid, retry with another map !\n");
+		return (0);
+	}
+	//printf("is rectangle = %d\nis surrounded by walls = %d\nis valid = %d\n", map_is_rectangle(map_string), map_is_closed(map_string), map_valid(map_string));
 	return (1);
 }
