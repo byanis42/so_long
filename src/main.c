@@ -6,11 +6,11 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:25:53 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/11 13:13:16 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/12 15:12:53 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/so_long.h"
+#include "../includes/so_long.h"
 
 int	main(int ac, char **av)
 {
@@ -24,7 +24,12 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	map_string = arg_to_str(av[1]);
-	parse_map(map_string);
+	if (!parse_map(map_string))
+	{
+			free(map_string);
+			return (0);
+	}
+	init_window();
 	free(map_string);
 	init_window();
 }

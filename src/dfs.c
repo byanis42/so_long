@@ -6,11 +6,11 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:12:05 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/12 13:01:07 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/12 15:12:48 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/so_long.h"
+#include "../includes/so_long.h"
 
 static void	find_start_exit(char *map_string, t_map *map)
 {
@@ -75,13 +75,8 @@ int	ft_path_dfs(char *map_string, t_map *map)
 {
 	find_start_exit(map_string, map);
 	printf("start row = [%d] /// start col = [%d]\n", map->start_row, map->start_col);
-	printf("exit row = [%d]  /// exit col = [%d]\ncollec count = [%d]", map->exit_row, map->exit_col, map->collec_count);
+	printf("exit row = [%d]  /// exit col = [%d]\ncollectibles count = [%d]", map->exit_row, map->exit_col, map->collec_count);
 	ft_dfs(map_string, map, map->start_row, map->start_col);
-	if (map->collec_clctd == map->collec_count)
-		return (1);
-	if (map_string[map->exit_row * (map->num_cols + 1) + map->exit_col] == 'V' &&
-		map->collec_clctd == map->collec_count)
-		return (1);
-	return (0);
-
+	printf("\ncollectibles collected = [%d]\n", map->collec_clctd);
+	return (map->collec_clctd == map->collec_count);
 }

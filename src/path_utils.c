@@ -6,11 +6,11 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:02:26 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/11 17:16:30 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/12 15:13:04 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/so_long.h"
+#include "../includes/so_long.h"
 
 char	**ft_free_td(char **arr, int len)
 {

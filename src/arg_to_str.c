@@ -6,11 +6,11 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:34:54 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/11 15:23:44 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/12 15:12:37 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/so_long.h"
+#include "../includes/so_long.h"
 
 static char	*ft_ret_null_free(char *result)
 {

@@ -6,11 +6,11 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:00:15 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/12 13:07:14 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/12 15:13:09 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/so_long.h"
+#include "../includes/so_long.h"
 
 void	print_arr(char **map_array, int num_rows, int num_cols)
 {
@@ -52,7 +52,7 @@ int	is_valid_path(char *map_string)
 
 	init_map_info(&map, map_string);
 	res = ft_path_dfs(map_string, &map);
-	printf("\nresult path = [%d]\n", res);
+	printf("\nresult valid path = [%d]\n", res);
 	if (res)
 		return (1);
 	return (0);

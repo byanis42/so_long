@@ -6,11 +6,11 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:18:42 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/12 13:10:50 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/12 15:13:02 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/so_long.h"
+#include "../includes/so_long.h"
 
 int	map_is_rectangle(char *map_string)
 {
