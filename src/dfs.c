@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:12:05 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/12 15:12:48 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/12 16:25:28 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	find_start_exit(char *map_string, t_map *map)
 {
-	while (map->i < map->num_rows)
+	while (map->i < map->num_rows - 1)
 	{
 		map->j = 0;
 		while (map->j < map->num_cols)
@@ -74,6 +74,7 @@ int ft_dfs(char* map, t_map* m, int row, int col)
 int	ft_path_dfs(char *map_string, t_map *map)
 {
 	find_start_exit(map_string, map);
+	get_cols(map_string);
 	printf("start row = [%d] /// start col = [%d]\n", map->start_row, map->start_col);
 	printf("exit row = [%d]  /// exit col = [%d]\ncollectibles count = [%d]", map->exit_row, map->exit_col, map->collec_count);
 	ft_dfs(map_string, map, map->start_row, map->start_col);
