@@ -6,37 +6,28 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:00:15 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/11 17:16:40 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/12 13:07:14 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/so_long.h"
 
-void printMapArray(char** map_array, int num_rows, int num_cols) {
-    for (int i = 0; i < num_rows - 1; i++) {
-        for (int j = 0; j < num_cols; j++) {
-            printf("%c", map_array[i][j]);
-        }
-        printf("\n");
-    }
-}
-
-void	print_arr(char **map_array)
+void	print_arr(char **map_array, int num_rows, int num_cols)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (map_array[i])
+	while (i < num_rows - 1)
 	{
 		j = 0;
-		while (map_array[i][j])
+		while (j < num_cols)
 		{
-			ft_printf(" %c-", map_array[i][j]);
+			ft_printf("%c", map_array[i][j]);
 			j++;
 		}
-		i++;
 		ft_printf("\n");
+		i++;
 	}
 }
 
@@ -56,14 +47,13 @@ void	init_map_info(t_map *map, char *map_string)
 
 int	is_valid_path(char *map_string)
 {
-	t_map map;
-	char **map_array;
+	t_map	map;
+	int		res;
 
 	init_map_info(&map, map_string);
-	map_array = string_to_td(map_string, get_rows(map_string), get_cols(map_string));
-	printMapArray(map_array, get_rows(map_string), get_cols(map_string));
-	//print_arr(map_array);
-	ft_free_td(map_array, get_rows(map_string));
-	printf("\n\nresult_path = %d\n\n", valid_pathing(map_string, &map));
-	return (1);
+	res = ft_path_dfs(map_string, &map);
+	printf("\nresult path = [%d]\n", res);
+	if (res)
+		return (1);
+	return (0);
 }

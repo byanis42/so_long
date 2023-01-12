@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:03:15 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/11 17:16:53 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/12 12:50:45 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_destroy(void *mlx_ptr, void *win_ptr);
 void	init_window(void);
 int		parse_map(char *map_string);
 int		is_valid_path(char *map_string);
-int		valid_pathing(char *map_string, t_map *map);
+int		ft_path_dfs(char *map_string, t_map *map); //, char **map_array);
 
 /* utils */
 
