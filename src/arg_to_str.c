@@ -6,11 +6,13 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:34:54 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/12 15:12:37 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/12 16:31:08 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+/* Reads the map and put it in a string */
 
 static char	*ft_ret_null_free(char *result)
 {

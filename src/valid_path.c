@@ -6,11 +6,13 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:00:15 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/12 15:13:09 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/12 16:32:47 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+/* Initialize the struct in able to perform the DFS algorithm */
 
 void	print_arr(char **map_array, int num_rows, int num_cols)
 {
