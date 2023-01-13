@@ -6,27 +6,27 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:13:57 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/13 21:37:46 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/13 21:45:16 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static void	ft_destroy_images(game)
+void	ft_destroy_images(t_game *game)
 {
 	if (game->img.player)
-		mlx_destroy_image(game->mlx, game->img.player);
+		mlx_destroy_image(game->mlx_ptr, game->img.player);
 	if (game->img.exit)
-		mlx_destroy_image(game->mlx, game->img.exit);
+		mlx_destroy_image(game->mlx_ptr, game->img.exit);
 	if (game->img.bckg)
-		mlx_destroy_image(game->mlx, game->img.bckg);
+		mlx_destroy_image(game->mlx_ptr, game->img.bckg);
 	if (game->img.wall)
-		mlx_destroy_image(game->mlx, game->img.wall);
+		mlx_destroy_image(game->mlx_ptr, game->img.wall);
 	if (game->img.collec)
-		mlx_destroy_image(game->mlx, game->img.collec);
+		mlx_destroy_image(game->mlx_ptr, game->img.collec);
 }
 
-static void	ft_destroy(t_game *game)
+void	ft_destroy(t_game *game)
 {
 	mlx_destroy_window(game->mlx_ptr, game->mlx_win_ptr);
 	mlx_destroy_display(game->mlx_ptr);

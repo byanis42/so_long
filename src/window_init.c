@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:10:06 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/13 21:20:09 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/13 22:43:35 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	get_win_size(t_game *game)
 void	init_window(t_game *game, char *map_string)
 {
 	game->map_array = ft_split(map_string, '\n');
+	free(map_string);
 	get_win_size(game);
 	for (int i = 0; game->map_array[i]; i++)
 		ft_printf("[%s]\n", game->map_array[i]);
@@ -54,6 +55,4 @@ void	init_window(t_game *game, char *map_string)
 	game->mlx_win_ptr = mlx_new_window
 		(game->mlx_ptr, game->win_width, game->win_height, "so_long");
 	load_image(game);
-	mlx_loop(game->mlx_ptr);
-	free_all(game);
 }

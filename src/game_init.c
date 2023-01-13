@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   game_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 10:36:19 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/13 22:32:12 by byanis           ###   ########.fr       */
+/*   Created: 2023/01/13 22:03:29 by byanis            #+#    #+#             */
+/*   Updated: 2023/01/13 22:06:57 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/so_long.h"
 
-void	*ft_realloc(void *ptr, size_t new_size)
+int	game_init(t_game *game)
 {
-	void	*new_ptr;
-
-	if (ptr == NULL)
-		return (calloc(1, new_size));
-	if (new_size == 0)
-	{
-		free(ptr);
-		return (NULL);
-	}
-	new_ptr = ft_calloc(1, new_size);
-	if (new_ptr == NULL)
-		return (NULL);
-	ft_memcpy(new_ptr, ptr, new_size);
-	free(ptr);
-	return (new_ptr);
+	if (game->map_array)
+		return (1);
+	return (1);
 }

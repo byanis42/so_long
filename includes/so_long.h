@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:03:15 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/13 21:31:35 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/13 22:04:44 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	init_window(t_game *game, char *map_string);
 int		parse_map(char *map_string);
 int		is_valid_path(char *map_string);
 int		ft_path_dfs(char *map_string, t_map *map);
+int		game_init(t_game *game);
 
 /* utils */
 
