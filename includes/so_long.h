@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:03:15 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/13 22:04:44 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/13 23:56:44 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,13 @@ typedef struct s_game
 	void	*mlx_ptr;
 	void	*mlx_win_ptr;
 	char	**map_array;
-	int	win_height;
-	int	win_width;
+	int		win_height;
+	int		win_width;
+	int		len_map;
+	int		mv_count;
+	int		collec;
+	int		pos_x;
+	int		pos_y;
 }	t_game;
 
 /* Functions */
@@ -81,7 +86,8 @@ void	init_window(t_game *game, char *map_string);
 int		parse_map(char *map_string);
 int		is_valid_path(char *map_string);
 int		ft_path_dfs(char *map_string, t_map *map);
-int		game_init(t_game *game);
+int		game_init(t_game *game, char *map_string);
+int		print_map(t_game *game);
 
 /* utils */
 
@@ -89,6 +95,6 @@ int		get_cols(char *map_string);
 int		get_rows(char *map_string);
 char	**string_to_td(char *map_parsing, int num_rows, int num_cols);
 char	**ft_free_td(char **arr);
-void	free_all(t_game *game);
+int		free_all(t_game *game);
 
 #endif

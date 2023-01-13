@@ -1,10 +1,10 @@
 NAME = so_long
-CC = clang
+CC = clang #-g -fsanitize=address
 CFLAGS = -I./includes
 
 SRCS_DIR = src
 SRCS = main.c map_parsing.c arg_to_str.c ber_format.c window_free_destroy.c window_init.c \
-		path_utils.c valid_path.c dfs.c game_init.c
+		path_utils.c valid_path.c dfs.c game_init.c print_map.c
 
 OBJS_DIR = $(SRCS_DIR)/objs
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.c=.o))

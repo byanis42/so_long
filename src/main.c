@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:25:53 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/13 22:40:19 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/14 00:44:32 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ int	main(int ac, char **av)
 			free(map_string);
 			return (1);
 		}
-		init_window(&game, arg_to_str(av[1]));
+		game_init(&game, arg_to_str(av[1]));
 		free(map_string);
 		free_all(&game);
+		printf("test2\n");
 	}
 	else
 		ft_printf("Error\n==> Wrong number of parameters \n");
