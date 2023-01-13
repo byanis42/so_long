@@ -6,18 +6,18 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:02:26 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/12 15:13:04 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/13 21:01:31 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-char	**ft_free_td(char **arr, int len)
+char	**ft_free_td(char **arr)
 {
 	int	i;
 
 	i = 0;
-	while (i < len)
+	while (arr[i])
 	{
 		free(arr[i]);
 		i++;
@@ -64,7 +64,7 @@ char	**string_to_td(char *map_string, int num_rows, int num_cols)
 	{
 		map_array[i] = malloc(num_cols * sizeof(char));
 		if (!map_array[i])
-			return (ft_free_td(map_array, i));
+			return (ft_free_td(map_array));
 		i++;
 	}
 	fill_array(map_array, map_string);

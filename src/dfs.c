@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:12:05 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/12 16:25:28 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/13 16:39:23 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,26 +47,26 @@ It marks the current position as visited and call recursively the function
 for respectively North South West and East position
 Returns 0 if no valid path were found.*/
 
-int ft_dfs(char* map, t_map* m, int row, int col)
+int ft_dfs(char* map_string, t_map* m, int row, int col)
 {
 	if (row < 0 || row >= m->num_rows || col < 0 || col >= m->num_cols)
 		return (0);
-	if (map[row * (m->num_cols + 1) + col] == 'V')
+	if (map_string[row * (m->num_cols + 1) + col] == 'V')
 		return (0);
-	if (map[row * (m->num_cols + 1) + col] == '1')
+	if (map_string[row * (m->num_cols + 1) + col] == '1')
 		return (0);
-	if (map[row * (m->num_cols + 1) + col] == 'C')
+	if (map_string[row * (m->num_cols + 1) + col] == 'C')
 		m->collec_clctd++;
 	if (m->collec_clctd == m->collec_count)
 		return (1);
-	map[row * (m->num_cols + 1) + col] = 'V';
-	if (ft_dfs(map, m, row - 1, col))
+	map_string[row * (m->num_cols + 1) + col] = 'V';
+	if (ft_dfs(map_string, m, row - 1, col))
 		return (1);
-	if (ft_dfs(map, m, row + 1, col))
+	if (ft_dfs(map_string, m, row + 1, col))
 		return (1);
-	if (ft_dfs(map, m, row, col - 1))
+	if (ft_dfs(map_string, m, row, col - 1))
 		return (1);
-	if (ft_dfs(map, m, row, col + 1))
+	if (ft_dfs(map_string, m, row, col + 1))
 		return (1);
 	return (0);
 }

@@ -6,19 +6,54 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:10:06 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/12 15:13:19 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/13 21:20:09 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	init_window(void)
+int	load_image(t_game *game)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	game->img.player = mlx_xpm_file_to_image
+		(game->mlx_ptr, "images/link.xpm", &game->img.w, &game->img.h);
+	game->img.exit = mlx_xpm_file_to_image
+		(game->mlx_ptr, "images/zel_w.xpm", &game->img.w, &game->img.h);
+	game->img.bckg = mlx_xpm_file_to_image
+		(game->mlx_ptr, "images/grass.xpm", &game->img.w, &game->img.h);
+	game->img.wall = mlx_xpm_file_to_image
+		(game->mlx_ptr, "images/walls.xpm", &game->img.w, &game->img.h);
+	game->img.collec = mlx_xpm_file_to_image
+		(game->mlx_ptr, "images/ruby.xpm", &game->img.w, &game->img.h);
+	if (!game->img.player || !game->img.exit
+		|| !game->img.bckg || !game->img.wall || !game->img.collec)
+	{
+		free_all(game);
+		return (0);
+	}
+	return (1);
+}
 
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT, "so_long");
-	mlx_loop(mlx_ptr);
-	ft_destroy(mlx_ptr, win_ptr);
+void	get_win_size(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	game->win_width = ft_strlen(game->map_array[i]) * 64;
+	while (game->map_array[i])
+		i++;
+	game->win_height = i * 64;
+}
+
+void	init_window(t_game *game, char *map_string)
+{
+	game->map_array = ft_split(map_string, '\n');
+	get_win_size(game);
+	for (int i = 0; game->map_array[i]; i++)
+		ft_printf("[%s]\n", game->map_array[i]);
+	game->mlx_ptr = mlx_init();
+	game->mlx_win_ptr = mlx_new_window
+		(game->mlx_ptr, game->win_width, game->win_height, "so_long");
+	load_image(game);
+	mlx_loop(game->mlx_ptr);
+	free_all(game);
 }

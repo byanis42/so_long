@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:03:15 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/12 12:50:45 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/13 21:31:35 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,18 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <stdbool.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
 # include "../libft/libft.h"
 # include "../libft/libftprintf.h"
 
-/* Defines */
+/* MLX Keys */
 
-# define WINDOW_WIDTH 1200
-# define WINDOW_HEIGHT 700
-
-# define M_EMPTY '0'
-# define M_WALL '1'
-# define M_COLLECT 'C'
-# define M_EXIT 'E'
-# define M_START 'P'
+# define KEY_ESC 65307
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
 
 /* Structs */
 
@@ -52,26 +51,43 @@ typedef struct s_map
 	int	j;
 }	t_map;
 
+typedef struct s_img
+{
+	void	*bckg;
+	void	*wall;
+	void	*collec;
+	void	*player;
+	void	*exit;
+	int		w;
+	int		h;
+}	t_img;
+
 typedef struct s_game
 {
+	t_img	img;
 	void	*mlx_ptr;
+	void	*mlx_win_ptr;
+	char	**map_array;
+	int	win_height;
+	int	win_width;
 }	t_game;
 
 /* Functions */
 
 int		check_ber_format(char *str);
 char	*arg_to_str(char *input);
-void	ft_destroy(void *mlx_ptr, void *win_ptr);
-void	init_window(void);
+void	ft_destroy(t_game *game);
+void	init_window(t_game *game, char *map_string);
 int		parse_map(char *map_string);
 int		is_valid_path(char *map_string);
-int		ft_path_dfs(char *map_string, t_map *map); //, char **map_array);
+int		ft_path_dfs(char *map_string, t_map *map);
 
 /* utils */
 
 int		get_cols(char *map_string);
 int		get_rows(char *map_string);
 char	**string_to_td(char *map_parsing, int num_rows, int num_cols);
-char	**ft_free_td(char **arr, int len);
+char	**ft_free_td(char **arr);
+void	free_all(t_game *game);
 
 #endif
