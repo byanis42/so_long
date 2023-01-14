@@ -6,12 +6,11 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:04:43 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/14 16:12:34 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/14 17:28:18 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
 
 void	player_forward(t_game *game)
 {

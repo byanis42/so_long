@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 22:03:29 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/14 17:15:24 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/14 17:30:30 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,11 @@ static int	keypress(int keycode, t_game *game)
 	return (0);
 }
 
-// int	handle_no_event(void *data)
-// {
-// 	(void)data;
-// 	/* This function needs to exist, but it is useless for the moment */
-// 	return (0);
-// }
-
-int	game_init(t_game *game, char *map_string)
+void	game_init(t_game *game, char *map_string)
 {
 	init_window(game, map_string);
-
 	mlx_hook(game->mlx_win_ptr, 2, 1L << 0, keypress, game);
 	mlx_hook(game->mlx_win_ptr, 17, 1L << 17, free_all, game);
 	mlx_hook(game->mlx_win_ptr, 9, 1L << 21, print_map, game);
-
 	mlx_loop(game->mlx_ptr);
-	return (1);
 }

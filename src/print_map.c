@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 23:48:08 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/14 13:54:00 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/14 17:25:09 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	img_draw(t_game *game, void *image, int x, int y)
 {
 	mlx_put_image_to_window
-		(game->mlx_ptr, game->mlx_win_ptr, image, x * 64, y * 64);
+		(game->mlx_ptr, game->mlx_win_ptr, image, x * 32, y * 32);
 }
 
 static void	player_draw(t_game *game, void *image, int x, int y)
