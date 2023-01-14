@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:34:54 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/14 15:21:47 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/14 15:25:26 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*ft_ret_null_free(char *result)
 	if (!result)
 		return (NULL);
 	free(result);
-		return (NULL);
+	return (NULL);
 }
 
 char	*a_t_s(char *result, int fd)

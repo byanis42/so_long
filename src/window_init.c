@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:10:06 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/14 14:55:26 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/14 16:16:20 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	init_window(t_game *game, char *map_string)
 	game->mlx_win_ptr = mlx_new_window
 		(game->mlx_ptr, game->win_width, game->win_height, "so_long");
 	game->mv_count = 0;
-	game->collec = 0;
+	game->finish = 0;
 	load_image(game);
 	print_map(game);
 }

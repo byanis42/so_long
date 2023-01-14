@@ -6,29 +6,31 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:25:53 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/14 15:20:37 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/14 17:15:22 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
+int	wrong_format(void)
+{
+	ft_printf("Error\n==>Wrong map extension. Map ext : \"*.ber\"\n");
+	return (1);
+}
+
 int	main(int ac, char **av)
 {
 	char	*map_string;
-	//char	*map_s2;
 	t_game	game;
 
 	if (ac == 2)
 	{
 		if (!check_ber_format(av[1]))
-		{
-			ft_printf("Error\n==>Wrong map extension. Map ext : \"*.ber\"\n");
-			return (1);
-		}
+			return (wrong_format());
 		map_string = arg_to_str(av[1]);
 		if (!map_string)
 			return (0);
-		if (!parse_map(map_string))
+		if (!parse_map(map_string, &game))
 		{
 			free(map_string);
 			return (1);
@@ -36,7 +38,6 @@ int	main(int ac, char **av)
 		free(map_string);
 		game_init(&game, arg_to_str(av[1]));
 		free_all(&game);
-		printf("test2\n");
 	}
 	else
 		ft_printf("Error\n==> Wrong number of parameters \n");

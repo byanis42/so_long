@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:12:05 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/13 16:39:23 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/14 17:05:30 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ It marks the current position as visited and call recursively the function
 for respectively North South West and East position
 Returns 0 if no valid path were found.*/
 
-int ft_dfs(char* map_string, t_map* m, int row, int col)
+int	ft_dfs(char *map_string, t_map *m, int row, int col)
 {
 	if (row < 0 || row >= m->num_rows || col < 0 || col >= m->num_cols)
 		return (0);
@@ -71,10 +71,12 @@ int ft_dfs(char* map_string, t_map* m, int row, int col)
 	return (0);
 }
 
-int	ft_path_dfs(char *map_string, t_map *map)
+int	ft_path_dfs(char *map_string, t_map *map, t_game *game)
 {
 	find_start_exit(map_string, map);
-	get_cols(map_string);
+	//get_cols(map_string);
+	game->collec = map->collec_count;
+	printf("====%d\n",game->collec);
 	printf("start row = [%d] /// start col = [%d]\n", map->start_row, map->start_col);
 	printf("exit row = [%d]  /// exit col = [%d]\ncollectibles count = [%d]", map->exit_row, map->exit_col, map->collec_count);
 	ft_dfs(map_string, map, map->start_row, map->start_col);
