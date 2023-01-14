@@ -1,5 +1,5 @@
 NAME = so_long
-CC = clang #-g -fsanitize=address
+CC = clang -g #-fsanitize=address
 CFLAGS = -I./includes
 
 SRCS_DIR = src

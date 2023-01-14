@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:03:15 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/13 23:56:44 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/14 14:26:00 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int		print_map(t_game *game);
 int		get_cols(char *map_string);
 int		get_rows(char *map_string);
 char	**string_to_td(char *map_parsing, int num_rows, int num_cols);
-char	**ft_free_td(char **arr);
+void	ft_free_td(char **arr);
 int		free_all(t_game *game);
 
 #endif

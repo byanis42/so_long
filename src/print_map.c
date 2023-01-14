@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 23:48:08 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/14 00:10:20 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/14 13:54:00 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	exit_draw(t_game *game, int x, int y)
 	{
 		mlx_destroy_image(game->mlx_ptr, game->img.exit);
 		game->img.exit = mlx_xpm_file_to_image
-			(game->mlx_ptr, "images/zel_w.xpm", &game->img.w, &game->img.h);
+			(game->mlx_ptr, "images/zel_rdy.xpm", &game->img.w, &game->img.h);
 	}
 	img_draw(game, game->img.exit, x, y);
 }

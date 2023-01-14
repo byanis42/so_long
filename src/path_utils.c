@@ -6,13 +6,13 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:02:26 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/14 00:30:21 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/14 14:26:48 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-char	**ft_free_td(char **arr)
+void	ft_free_td(char **arr)
 {
 	int	i;
 
@@ -23,7 +23,6 @@ char	**ft_free_td(char **arr)
 		i++;
 	}
 	free(arr);
-	return (NULL);
 }
 
 static char	**fill_array(char **map_array, char *map_string)
@@ -64,7 +63,10 @@ char	**string_to_td(char *map_string, int num_rows, int num_cols)
 	{
 		map_array[i] = malloc(num_cols * sizeof(char));
 		if (!map_array[i])
-			return (ft_free_td(map_array));
+		{
+			ft_free_td(map_array);
+			return (NULL);
+		}
 		i++;
 	}
 	fill_array(map_array, map_string);

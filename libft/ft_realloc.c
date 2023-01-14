@@ -6,27 +6,46 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:36:19 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/13 22:32:12 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/14 14:50:16 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_realloc(void *ptr, size_t new_size)
-{
-	void	*new_ptr;
+// void	*ft_realloc(void *ptr, size_t new_size)
+// {
+// 	void	*new_ptr;
 
-	if (ptr == NULL)
-		return (calloc(1, new_size));
-	if (new_size == 0)
-	{
-		free(ptr);
-		return (NULL);
-	}
-	new_ptr = ft_calloc(1, new_size);
-	if (new_ptr == NULL)
-		return (NULL);
-	ft_memcpy(new_ptr, ptr, new_size);
-	free(ptr);
-	return (new_ptr);
+// 	if (ptr == NULL)
+// 		return (ft_calloc(1, new_size));
+// 	if (new_size == 0)
+// 	{
+// 		free(ptr);
+// 		return (NULL);
+// 	}
+// 	new_ptr = ft_calloc(1, new_size);
+// 	if (new_ptr == NULL)
+// 		return (NULL);
+// 	ft_memcpy(new_ptr, ptr, new_size);
+// 	free(ptr);
+// 	return (new_ptr);
+// }
+
+void *ft_realloc(void *ptr, size_t size)
+{
+    void *new_ptr;
+
+    if (ptr == NULL)
+        return (malloc(size));
+    if (size == 0)
+    {
+        free(ptr);
+        return (NULL);
+    }
+    new_ptr = malloc(size);
+    if (new_ptr == NULL)
+        return (NULL);
+    ft_memcpy(new_ptr, ptr, size);
+    free(ptr);
+    return (new_ptr);
 }

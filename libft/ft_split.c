@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:36:29 by byanis            #+#    #+#             */
-/*   Updated: 2022/10/10 18:51:22 by byanis           ###   ########.fr       */
+/*   Updated: 2022/11/10 17:07:10 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,27 @@ static char	*malloc_word(const char *str, char c)
 	return (word);
 }
 
+char	**ft_free_exit(char **arr, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	arr = malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!arr)
 		return (NULL);
@@ -73,6 +89,8 @@ char	**ft_split(char const *s, char c)
 		if (*s && !ft_is_c(*s, c))
 		{
 			arr[i] = malloc_word(s, c);
+			if (!arr[i])
+				return (ft_free_exit(arr, i));
 			i++;
 			while (*s && !ft_is_c(*s, c))
 				s++;
