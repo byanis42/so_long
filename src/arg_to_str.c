@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:34:54 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/15 02:44:56 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/15 12:32:55 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,6 @@ static char	*ft_ret_null_free(char *result)
 		return (NULL);
 	free(result);
 	return (NULL);
-}
-
-int	check_if_directory(int fd)
-{
-	char	buffer[1];
-	ssize_t	n;
-
-	n = read(fd, buffer, 1);
-	if (n < 0)
-	{
-		ft_printf("Error\n");
-		perror("Read error");
-		exit(1);
-	}
-	if (n == 0)
-		return (1);
-	else
-		return (0);
 }
 
 char	*a_t_s(char *result, int fd)
@@ -73,13 +55,11 @@ char	*arg_to_str(char *input)
 	int		fd;
 
 	result = NULL;
-	fd = open(input, O_RDONLY);
+	fd = open(input, O_RDWR);
 	if (fd == -1)
 	{
 		perror("Error\n");
 		return (NULL);
 	}
-	if (!check_if_directory(fd))
-		return (NULL);
 	return (a_t_s(result, fd));
 }
