@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:25:53 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/14 17:15:22 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/15 02:47:43 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ int	main(int ac, char **av)
 			return (wrong_format());
 		map_string = arg_to_str(av[1]);
 		if (!map_string)
+		{
+			ft_printf("Error\nContent missing\n");
 			return (0);
+		}
 		if (!parse_map(map_string, &game))
 		{
 			free(map_string);
