@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:03:15 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/14 17:30:41 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/16 17:26:42 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,11 @@ typedef struct s_game
 int		check_ber_format(char *str);
 char	*arg_to_str(char *input);
 void	ft_destroy(t_game *game);
-void	init_window(t_game *game, char *map_string);
+int		init_window(t_game *game, char *map_string);
 int		parse_map(char *map_string, t_game *game);
 int		is_valid_path(char *map_string, t_game *game);
 int		ft_path_dfs(char *map_string, t_map *map, t_game *game);
-void	game_init(t_game *game, char *map_string);
+int		game_init(t_game *game, char *map_string);
 int		print_map(t_game *game);
 void	player_forward(t_game *game);
 void	player_backward(t_game *game);
