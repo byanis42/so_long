@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:10:06 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/16 17:28:35 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/16 17:30:44 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int	init_window(t_game *game, char *map_string)
 		free(map_string);
 		return (0);
 	}
-	game->mlx_ptr = mlx_init();
 	free(map_string);
+	game->mlx_ptr = mlx_init();
 	get_win_size(game);
 	game->mlx_win_ptr = mlx_new_window
 		(game->mlx_ptr, game->win_width, game->win_height, "so_long");
