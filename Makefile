@@ -13,21 +13,29 @@ LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 LFLAGS = -L./libft -lft
 
+MLX_DIR = minilibx-linux
+MLX = $(MLX_DIR)/libmlx.a
+
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJS)
-	@$(CC) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm $(LFLAGS) -o $(NAME)
+$(NAME): $(LIBFT) $(MLX) $(OBJS)
+	@$(CC) $(OBJS) $(MLX) -L/usr/lib -lXext -lX11 -lm $(LFLAGS) -o $(NAME)
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	@mkdir -p $(OBJS_DIR)
 	@echo "Compiling $< \033[0;32m✔\033[0m"
-	@$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 $(CFLAGS) -c $< -o $@
+	@$(CC) -Wall -Wextra -Werror -I/usr/include -O3 $(CFLAGS) -c $< -o $@
+
 $(LIBFT):
 	@make --no-print-directory -C $(LIBFT_DIR)
+
+$(MLX):
+	@make --no-print-directory -C $(MLX_DIR)
 
 clean:
 	@rm -rf $(OBJS_DIR)
 	@make --no-print-directory -C $(LIBFT_DIR) clean
+	@make --no-print-directory -C $(MLX_DIR) clean
 	@echo "===> Objects deleted"
 
 fclean: clean
