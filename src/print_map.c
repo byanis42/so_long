@@ -6,26 +6,26 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 23:48:08 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/14 17:25:09 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/15 13:49:35 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	img_draw(t_game *game, void *image, int x, int y)
+void	print_image(t_game *game, void *image, int x, int y)
 {
 	mlx_put_image_to_window
 		(game->mlx_ptr, game->mlx_win_ptr, image, x * 32, y * 32);
 }
 
-static void	player_draw(t_game *game, void *image, int x, int y)
+static void	print_player(t_game *game, void *image, int x, int y)
 {
 	game->pos_x = x;
 	game->pos_y = y;
-	img_draw(game, image, x, y);
+	print_image(game, image, x, y);
 }
 
-static void	exit_draw(t_game *game, int x, int y)
+static void	print_exit(t_game *game, int x, int y)
 {
 	if (game->collec == 0)
 	{
@@ -33,7 +33,7 @@ static void	exit_draw(t_game *game, int x, int y)
 		game->img.exit = mlx_xpm_file_to_image
 			(game->mlx_ptr, "images/zel_rdy.xpm", &game->img.w, &game->img.h);
 	}
-	img_draw(game, game->img.exit, x, y);
+	print_image(game, game->img.exit, x, y);
 }
 
 int	print_map(t_game *game)
@@ -48,15 +48,15 @@ int	print_map(t_game *game)
 		while (game->map_array[y][x])
 		{
 			if (game->map_array[y][x] == '1')
-				img_draw(game, game->img.wall, x, y);
+				print_image(game, game->img.wall, x, y);
 			else if (game->map_array[y][x] == '0')
-				img_draw(game, game->img.bckg, x, y);
+				print_image(game, game->img.bckg, x, y);
 			else if (game->map_array[y][x] == 'P')
-				player_draw(game, game->img.player, x, y);
+				print_player(game, game->img.player, x, y);
 			else if (game->map_array[y][x] == 'C')
-				img_draw(game, game->img.collec, x, y);
+				print_image(game, game->img.collec, x, y);
 			else if (game->map_array[y][x] == 'E')
-				exit_draw(game, x, y);
+				print_exit(game, x, y);
 			x++;
 		}
 		y++;

@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:00:15 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/14 17:03:17 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/15 13:47:37 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	is_valid_path(char *map_string, t_game *game)
 
 	init_map_info(&map, map_string);
 	res = ft_path_dfs(map_string, &map, game);
-	printf("\nresult valid path = [%d]\n", res);
 	if (res)
 	{
 		return (1);

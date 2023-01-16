@@ -6,11 +6,14 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 22:03:29 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/14 17:30:30 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/15 13:46:39 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+/* Initialize window and events with appropriate mask
+	see the X.h documentation for details about events and masks*/
 
 static void	handle_events(int keycode, t_game *game)
 {
@@ -43,8 +46,8 @@ static int	keypress(int keycode, t_game *game)
 	else if (!game->finish)
 	{
 		handle_events(keycode, game);
-		ft_printf("Moves: %d\n", game->mv_count);
-		ft_printf("Collec left %d\n", game->collec);
+		ft_printf("Move count: %d\n", game->mv_count);
+		ft_printf("Collectibles left %d\n", game->collec);
 	}
 	return (0);
 }
@@ -52,8 +55,11 @@ static int	keypress(int keycode, t_game *game)
 void	game_init(t_game *game, char *map_string)
 {
 	init_window(game, map_string);
-	mlx_hook(game->mlx_win_ptr, 2, 1L << 0, keypress, game);
-	mlx_hook(game->mlx_win_ptr, 17, 1L << 17, free_all, game);
-	mlx_hook(game->mlx_win_ptr, 9, 1L << 21, print_map, game);
+	mlx_hook
+		(game->mlx_win_ptr, KeyPress, KeyPressMask, keypress, game);
+	mlx_hook
+		(game->mlx_win_ptr, DestroyNotify, StructureNotifyMask, free_all, game);
+	mlx_hook
+		(game->mlx_win_ptr, FocusIn, FocusChangeMask, print_map, game);
 	mlx_loop(game->mlx_ptr);
 }

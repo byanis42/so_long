@@ -6,11 +6,14 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:12:05 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/14 17:29:24 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/15 13:39:00 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+/* Finds starting point and exit point coordinates
+as well as the number of collectibles */
 
 static void	find_start_exit(char *map_string, t_map *map)
 {

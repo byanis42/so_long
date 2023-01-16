@@ -6,11 +6,13 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:47:23 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/12 15:12:46 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/15 13:37:51 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+/* Checks if input map format is .ber */
 
 int	check_ber_format(char *str)
 {
