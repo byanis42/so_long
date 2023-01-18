@@ -6,11 +6,28 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:18:42 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/14 16:46:37 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/18 15:13:58 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+int	unknown_char(char *map_string)
+{
+	int	i;
+
+	i = 0;
+	while (map_string[i])
+	{
+		if (map_string[i] == '\n' || map_string[i] == 'C'
+			|| map_string[i] == 'P' || map_string[i] == 'E'
+			|| map_string[i] == '1' || map_string[i] == '0')
+				i++;
+		else
+			return (0);
+	}
+	return (1);
+}
 
 int	map_is_rectangle(char *map_string)
 {
@@ -95,7 +112,8 @@ int	map_valid(char *map_string)
 int	parse_map(char *map_string, t_game *game)
 {
 	if (!map_is_rectangle(map_string) || !map_is_closed(map_string)
-		|| !map_valid(map_string) || !is_valid_path(map_string, game))
+		|| !map_valid(map_string) || !unknown_char(map_string)
+		|| !is_valid_path(map_string, game))
 	{
 		ft_printf("Error\nMap isn't valid, retry with another map !\n");
 		return (0);
