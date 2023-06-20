@@ -6,32 +6,13 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:00:15 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/16 16:55:30 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/17 18:18:04 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
 /* Initialize the struct in able to perform the DFS algorithm */
-
-void	print_arr(char **map_array, int num_rows, int num_cols)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < num_rows - 1)
-	{
-		j = 0;
-		while (j < num_cols)
-		{
-			ft_printf("%c", map_array[i][j]);
-			j++;
-		}
-		ft_printf("\n");
-		i++;
-	}
-}
 
 void	init_map_info(t_map *map, char *map_string)
 {

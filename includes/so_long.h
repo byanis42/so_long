@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:03:15 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/16 17:26:42 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/17 17:16:59 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /* Librairies */
 
-# include <mlx.h>
+# include "../minilibx-linux/mlx.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <sys/types.h>
@@ -47,6 +47,7 @@ typedef struct s_map
 	int	exit_col;
 	int	collec_count;
 	int	collec_clctd;
+	int	exit_count;
 	int	i;
 	int	j;
 }	t_map;

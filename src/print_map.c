@@ -6,7 +6,7 @@
 /*   By: byanis <byanis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 23:48:08 by byanis            #+#    #+#             */
-/*   Updated: 2023/01/15 13:49:35 by byanis           ###   ########.fr       */
+/*   Updated: 2023/01/18 11:33:02 by byanis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ void	print_image(t_game *game, void *image, int x, int y)
 		(game->mlx_ptr, game->mlx_win_ptr, image, x * 32, y * 32);
 }
 
-static void	print_player(t_game *game, void *image, int x, int y)
+void	print_player(t_game *game, void *image, int x, int y)
 {
 	game->pos_x = x;
 	game->pos_y = y;
 	print_image(game, image, x, y);
 }
 
-static void	print_exit(t_game *game, int x, int y)
+void	print_exit(t_game *game, int x, int y)
 {
 	if (game->collec == 0)
 	{
